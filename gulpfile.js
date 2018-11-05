@@ -1,24 +1,24 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var header = require('gulp-header');
-var cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
-var uglify = require('gulp-uglify');
-var autoprefixer = require('gulp-autoprefixer');
-var pkg = require('./package.json');
-var browserSync = require('browser-sync').create();
+let gulp = require('gulp');
+let sass = require('gulp-sass');
+let header = require('gulp-header');
+let cleanCSS = require('gulp-clean-css');
+let rename = require("gulp-rename");
+let uglify = require('gulp-uglify');
+let autoprefixer = require('gulp-autoprefixer');
+let pkg = require('./package.json');
+let browserSync = require('browser-sync').create();
 
 // Set the banner content
-var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
+const banner = ['/*!\n',
+  ' * Jesus Peñalver - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Copyright 2018-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
+  ' * https://github.com/Ismaestro/jesuspenalver/blob/master/LICENSE\n',
   ' */\n',
   '\n'
 ].join('');
 
 // Compile SCSS
-gulp.task('css:compile', function() {
+gulp.task('css:compile', function () {
   return gulp.src('./scss/**/*.scss')
     .pipe(sass.sync({
       outputStyle: 'expanded'
@@ -34,11 +34,11 @@ gulp.task('css:compile', function() {
 });
 
 // Minify CSS
-gulp.task('css:minify', ['css:compile'], function() {
+gulp.task('css:minify', gulp.series('css:compile'), function () {
   return gulp.src([
-      './css/*.css',
-      '!./css/*.min.css'
-    ])
+    './css/*.css',
+    '!./css/*.min.css'
+  ])
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
@@ -48,14 +48,14 @@ gulp.task('css:minify', ['css:compile'], function() {
 });
 
 // CSS
-gulp.task('css', ['css:compile', 'css:minify']);
+gulp.task('css', gulp.series('css:compile', 'css:minify'));
 
 // Minify JavaScript
-gulp.task('js:minify', function() {
+gulp.task('js:minify', function () {
   return gulp.src([
-      './js/*.js',
-      '!./js/*.min.js'
-    ])
+    './js/*.js',
+    '!./js/*.min.js'
+  ])
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
@@ -68,13 +68,13 @@ gulp.task('js:minify', function() {
 });
 
 // JS
-gulp.task('js', ['js:minify']);
+gulp.task('js', gulp.series('js:minify'));
 
 // Default task
-gulp.task('default', ['css', 'js']);
+gulp.task('default', gulp.series('css', 'js'));
 
 // Configure the browserSync task
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
   browserSync.init({
     server: {
       baseDir: "./"
@@ -83,7 +83,7 @@ gulp.task('browserSync', function() {
 });
 
 // Dev task
-gulp.task('dev', ['css', 'js', 'browserSync'], function() {
+gulp.task('dev', gulp.series('css', 'js', 'browserSync'), function () {
   gulp.watch('./scss/*.scss', ['css']);
   gulp.watch('./js/*.js', ['js']);
   gulp.watch('./*.html', browserSync.reload);
