@@ -4,9 +4,9 @@
   <p align="center">
     Resume webpage for a good friend of mine :)
     <br>
-    <a href="https://github.com/Ismaestro/nodejs-example-app/issues/new?template=bug.md">Report bug</a>
+    <a href="https://github.com/Ismaestro/jesuspenalver/issues/new?template=bug.md">Report bug</a>
     ·
-    <a href="https://github.com/Ismaestro/nodejs-example-app/issues/new?template=feature.md&labels=feature">Request feature</a>
+    <a href="https://github.com/Ismaestro/jesuspenalver/issues/new?template=feature.md&labels=feature">Request feature</a>
   </p>
 </p>
 
@@ -48,7 +48,7 @@ You must have npm and Gulp installed globally on your machine in order to use th
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/Ismaestro/nodejs-example-app/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/Ismaestro/nodejs-example-app/issues/new).
+Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/Ismaestro/jesuspenalver/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/Ismaestro/jesuspenalver/issues/new).
 
 ## Creators
 
@@ -60,6 +60,6 @@ Have a bug or a feature request? Please first read the [issue guidelines](https:
 
 ## Copyright and license
 
-Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://github.com/Ismaestro/nodejs-example-app/blob/master/LICENSE).
+Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://github.com/Ismaestro/jesuspenalver/blob/master/LICENSE).
 
 Enjoy :metal:
